@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
   signInWithPopup,
@@ -28,8 +27,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 const database = getDatabase();
 
 const auth = getAuth();
@@ -70,8 +69,8 @@ export async function signInUsingGoogle(setBackgroundOverlay, setLoading) {
       console.log("No one is logged in");
       signInWithPopup(auth, provider)
         .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
+          // const credential = GoogleAuthProvider.credentialFromResult(result);
+          // const token = credential.accessToken;
           const user = result.user;
           console.log(`Logged in:`, user);
           if (!user.email.includes("sggs.ac.in")) {
@@ -100,7 +99,7 @@ export async function signInUsingGoogle(setBackgroundOverlay, setLoading) {
           // The email of the user's account used.
           const email = error.customData.email;
           // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
+          // const credential = GoogleAuthProvider.credentialFromError(error);
           // ...
           console.log(
             "Error occured while signing in",

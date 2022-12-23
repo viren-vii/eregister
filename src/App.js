@@ -15,7 +15,7 @@ const App = () => {
       getStatus(setBackground, setLoading, setIsIn);
       setFirstRender(true);
     }
-  });
+  }, [background, backgroundOverlay, loading, isIn, firstRender]);
 
   const handleClick = async (click) => {
     setBackgroundOverlay(click === "en" ? "#66B03299" : "#ff370099");
